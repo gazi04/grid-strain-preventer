@@ -1,0 +1,17 @@
+[project]
+name = "grid-strain-preventer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "databricks-connect>=18.1.2",
+    "databricks-sdk>=0.102.0",
+    "pyspark>=4.1.1",
+    "pytest>=9.0.2",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.7",
+]
