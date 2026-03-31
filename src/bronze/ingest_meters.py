@@ -38,8 +38,9 @@ def ingest_substation_data(spark: SparkSession) -> None:
         .format("delta")
         .outputMode("append")
         .option("checkpointLocation", CHECKPOINT_PATH)
+        .trigger(availableNow=True)
         .toTable(BRONZE_TABLE)
-        .awaitTermination(timeout=300)
+        .awaitTermination()
     )
 
     logger.info(f"Bronze ingestion complete → {BRONZE_TABLE}")
