@@ -28,7 +28,7 @@ def ingest_substation_data(spark: SparkSession) -> None:
         .schema(BRONZE_SUBSTATION_SCHEMA)
         .load(RAW_VOLUME_PATH)
         .withColumn("_ingestion_timestamp", F.current_timestamp())
-        .withColumn("_source_file", F.input_file_name())
+        .withColumn("_source_file", F.col("_metadata.file_path"))
     )
 
     total_rows = df.count()
