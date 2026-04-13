@@ -28,3 +28,19 @@ CREATE TABLE IF NOT EXISTS `grid-strain-preventer-catalog`.bronze.bronze_substat
 )
 USING DELTA
 COMMENT 'Raw Northern Powergrid substation CSVs — no transformations applied';
+
+
+CREATE TABLE IF NOT EXISTS `grid-strain-preventer-catalog`.bronze.bronze_weather (
+    latitude                DOUBLE,
+    longitude               DOUBLE,
+    elevation               DOUBLE,
+    timezone                STRING,
+    timezone_abbreviation   STRING,
+    utc_offset_seconds      LONG,
+    timestamp               STRING,   -- raw string from API — cast to timestamp in Silver
+    temperature_2m          DOUBLE,   -- °C at 2m above ground, hourly
+    _ingestion_timestamp    TIMESTAMP,
+    _location_name          STRING    -- "Newcastle" — useful when adding more locations later
+)
+USING DELTA
+COMMENT 'Bronze layer: raw hourly temperature data from Open-Meteo API';

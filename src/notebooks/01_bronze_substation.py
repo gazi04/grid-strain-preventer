@@ -3,7 +3,7 @@
 # Purpose:  Ingest raw Northern Powergrid substation CSVs
 #           from Unity Catalog Volume into Bronze Delta table.
 #
-# Pre-requisite: setup/01_create_catalog.sql must have been
+# Pre-requisite: setup/create_bronze_table.sql must have been
 #                run before executing this notebook.
 # ============================================================
 
