@@ -1,5 +1,5 @@
 from pyspark.sql.types import (
-    StructType, StructField, StringType
+    StructType, StructField, StringType, DoubleType, LongType
 )
 
 BRONZE_SUBSTATION_SCHEMA = StructType([
@@ -19,3 +19,17 @@ BRONZE_SUBSTATION_SCHEMA = StructType([
     StructField("insert_time",                         StringType(), True),
     StructField("last_modified_time",                  StringType(), True),
 ])
+
+BRONZE_WEATHER_SCHEMA = StructType([
+    StructField("latitude",              DoubleType(), True),
+    StructField("longitude",             DoubleType(), True),
+    StructField("elevation",             DoubleType(), True),
+    StructField("timezone",              StringType(), True),
+    StructField("timezone_abbreviation", StringType(), True),
+    StructField("utc_offset_seconds",    LongType(),   True),
+    StructField("timestamp",             StringType(), True),
+    StructField("temperature_2m",        DoubleType(), True),
+    StructField("_ingestion_timestamp",  StringType(), True),
+    StructField("_location_name",        StringType(), True),
+])
+
