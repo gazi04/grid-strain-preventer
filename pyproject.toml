@@ -15,3 +15,8 @@ dependencies = [
 dev = [
     "ruff>=0.15.7",
 ]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
